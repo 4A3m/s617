@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<!--
+  =====================================================================
+  S617 PORTFOLIO 3 TEMPLATE
+  How to use: edit every spot marked  <!-- EDIT: ... -- >  below.
+  You do NOT need to touch the <style> block unless you want to change
+  the look. Feel free to use your favorit ai to edit or modify. 
+  When you're done, commit this file to your `username.github.io`
+  repo and enable GitHub Pages (Settings -> Pages -> Source: main).
+  =====================================================================
+-->
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- EDIT: your name in the browser tab title -->
+  <title>Your Name - Cybersecurity Portfolio 🌸</title>
+
+  <!-- Google Fonts: Fira Code for terminal aesthetic & Plus Jakarta Sans for clean reading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-dark: #0f0814;
+      --bg-gradient: radial-gradient(circle at 50% -20%, #321138 0%, #0f0814 80%);
+      --surface: #180e21;
+      --surface-border: #3b1f4c;
+      --surface-hover: #231230;
+      
+      --pink-primary: #ff7bb0;
+      --pink-neon: #ff2a85;
+      --purple-glow: #bd5eff;
+      --lavender-soft: #e2c0ff;
+      --cyan-cyber: #70f3ff;
+      
+      --text-main: #f5e8ff;
+      --text-muted: #bda2cb;
+      
+      --font-mono: "Fira Code", monospace;
+      --font-body: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+    body {
+      margin: 0;
+      background: var(--bg-dark);
+      background-image: var(--bg-gradient);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.65;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      position: relative;
+    }
+
+    /* Cyber grid overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(255, 42, 133, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 42, 133, 0.05) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 48rem;
+      margin: 0 auto;
+      padding: clamp(2rem, 5vw, 4rem) 1.5rem;
+    }
+
+    a { 
+      color: var(--pink-primary); 
+      text-decoration: none; 
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    a:hover { 
+      color: var(--pink-neon); 
+      text-shadow: 0 0 10px rgba(255, 42, 133, 0.6);
+    }
+    a:focus-visible { 
+      outline: 2px solid var(--pink-neon); 
+      outline-offset: 3px; 
+      border-radius: 4px; 
+    }
+
+    .terminal-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.7rem 1.2rem;
+      background: #1f102b;
+      border: 1px solid var(--surface-border);
+      border-bottom: none;
+      border-radius: 12px 12px 0 0;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--lavender-soft);
+      box-shadow: 0 -4px 20px rgba(255, 42, 133, 0.1);
+    }
+    
+    .dots {
+      display: flex;
+      gap: 0.45rem;
+    }
+    
+    .dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .dot.pink { background: #ff529a; box-shadow: 0 0 6px #ff529a; }
+    .dot.purple { background: #be6eff; box-shadow: 0 0 6px #be6eff; }
+    .dot.cyan { background: #70f3ff; box-shadow: 0 0 6px #70f3ff; }
+
+    .hero {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 0 0 12px 12px;
+      padding: 2.2rem;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(189, 94, 255, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "✨";
+      position: absolute;
+      top: 1.5rem;
+      right: 1.8rem;
+      font-size: 1.5rem;
+      opacity: 0.6;
+      animation: float 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes float {
+      from { transform: translateY(0); }
+      to { transform: translateY(-6px); }
+    }
+
+    .hero .prompt {
+      font-family: var(--font-mono);
+      color: var(--pink-primary);
+      font-size: 0.95rem;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .hero h1 {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: clamp(2.1rem, 6.5vw, 3.2rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin: 0 0 0.6rem;
+      color: #ffffff;
+      text-shadow: 0 0 15px rgba(255, 123, 176, 0.3);
+    }
+
+    .hero .role {
+      font-family: var(--font-mono);
+      font-weight: 500;
+      color: var(--lavender-soft);
+      font-size: 1.02rem;
+      margin: 0 0 1.3rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 42, 133, 0.12);
+      border: 1px solid var(--pink-neon);
+      color: var(--pink-primary);
+      font-size: 0.78rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.02em;
+      box-shadow: 0 0 10px rgba(255, 42, 133, 0.25);
+    }
+
+    .status-badge::before {
+      content: "🌸";
+      font-size: 0.75rem;
+    }
+
+    .hero .lede { 
+      color: var(--text-muted); 
+      max-width: 36rem; 
+      margin: 0 0 1.8rem; 
+    }
+
+    .contacts { 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 0.8rem; 
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+    }
+
+    .contacts a {
+      background: rgba(189, 94, 255, 0.1);
+      border: 1px solid rgba(189, 94, 255, 0.3);
+      color: var(--lavender-soft);
+      padding: 0.45rem 0.9rem;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .contacts a:hover {
+      background: rgba(255, 42, 133, 0.2);
+      border-color: var(--pink-neon);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    section { margin-top: 3.5rem; }
+
+    h2 {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: var(--pink-primary);
+      letter-spacing: 0.04em;
+      margin: 0 0 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h2::before {
+      content: "🌸";
+      font-size: 1rem;
+    }
+
+    h2::after {
+      content: "";
+      flex-grow: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--surface-border), transparent);
+      margin-left: 0.5rem;
+    }
+
+    p { margin: 0 0 1rem; color: var(--text-muted); }
+
+    .tags { 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 0.65rem; 
+      padding: 0; 
+      margin: 0; 
+      list-style: none; 
+      font-family: var(--font-mono);
+    }
+
+    .tags li {
+      font-size: 0.88rem;
+      color: var(--text-main);
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 20px;
+      padding: 0.4rem 0.95rem;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .tags li::before {
+      content: "✨";
+      font-size: 0.75rem;
+      opacity: 0.7;
+    }
+
+    .tags li:hover {
+      border-color: var(--pink-neon);
+      color: #ffffff;
+      box-shadow: 0 0 12px rgba(255, 42, 133, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .entry { 
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-left: 4px solid var(--purple-glow);
+      border-radius: 0 12px 12px 0;
+      padding: 1.4rem 1.6rem;
+      margin-bottom: 1.3rem;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+
+    .entry:hover {
+      transform: translateX(6px);
+      border-left-color: var(--pink-neon);
+      background: var(--surface-hover);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4), 0 0 15px rgba(255, 42, 133, 0.15);
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .entry h3 { 
+      font-family: var(--font-mono); 
+      font-weight: 600; 
+      font-size: 1.15rem; 
+      margin: 0; 
+      color: #ffffff;
+    }
+
+    .sev-tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+
+    .sev-pass {
+      background: rgba(112, 243, 255, 0.12);
+      color: var(--cyan-cyber);
+      border: 1px solid rgba(112, 243, 255, 0.3);
+    }
+
+    .sev-med {
+      background: rgba(255, 189, 46, 0.12);
+      color: #ffbd2e;
+      border: 1px solid rgba(255, 189, 46, 0.3);
+    }
+
+    .entry p { 
+      font-size: 0.98rem;
+      margin: 0 0 0.9rem; 
+    }
+
+    .entry .meta { 
+      font-family: var(--font-mono);
+      font-size: 0.85rem; 
+      color: var(--text-muted); 
+      background: rgba(15, 8, 20, 0.6);
+      padding: 0.5rem 0.8rem;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .entry .meta span { 
+      color: var(--lavender-soft); 
+    }
+
+    footer {
+      margin-top: 4.5rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid var(--surface-border);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    footer::before {
+      content: "💗 ---------------- 💗";
+      font-size: 0.75rem;
+      opacity: 0.4;
+      color: var(--pink-primary);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <div class="terminal-bar">
+      <div class="dots">
+        <span class="dot pink"></span>
+        <span class="dot purple"></span>
+        <span class="dot cyan"></span>
+      </div>
+      <span>cyber-pink:~ # bash</span>
+      <span>🔒 Encrypted</span>
+    </div>
+
+    <header class="hero">
+      <div class="prompt">
+        <span>katie@cyber-pink:~#</span> whoami
+      </div>
+      <!-- EDIT: your name -->
+      <h1>Your Name</h1>
+      
+      <!-- EDIT: your focus / status -->
+      <div class="role">
+        <span>Cybersecurity Student // Aspiring SOC Analyst</span>
+        <span class="status-badge">Defending with Style 💖</span>
+      </div>
+
+      <!-- EDIT: your intro sentence -->
+      <p class="lede">
+        Cybersecurity student at Hudson County Community College building hands-on
+        skills in network defense and threat detection. I document everything I build.
+      </p>
+
+      <nav class="contacts" aria-label="Contact links">
+        <!-- EDIT: your links -->
+        <a href="https://github.com/your-username" target="_blank">[🐙 GitHub]</a>
+        <a href="https://www.linkedin.com/in/your-handle" target="_blank">[💼 LinkedIn]</a>
+        <a href="mailto:your-dedicated-email@example.com">[✉️ Email]</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="about">
+        <h2>about.me</h2>
+        <!-- EDIT: short overview -->
+        <p>
+          I'm in my second year of the cybersecurity program at HCCC, where I work
+          through labs in the S617 lab and turn each one into a documented writeup.
+          I'm most interested in defensive security - reading logs, spotting anomalies,
+          and understanding how attacks actually unfold so I can stop them.
+        </p>
+      </section>
+
+      <section id="skills">
+        <h2>skills &amp; tools</h2>
+        <!-- EDIT: skills list -->
+        <ul class="tags">
+          <li>Linux</li>
+          <li>Python</li>
+          <li>Bash</li>
+          <li>Wireshark</li>
+          <li>nmap</li>
+          <li>Git &amp; GitHub</li>
+          <li>Networking</li>
+        </ul>
+      </section>
+
+      <section id="work">
+        <h2>lab writeups &amp; findings</h2>
+
+        <!-- EDIT: project entries -->
+        <article class="entry">
+          <div class="entry-header">
+            <h3>Network Reconnaissance Lab</h3>
+            <span class="sev-tag sev-pass">[PASS]</span>
+          </div>
+          <p>
+            Mapped an isolated lab network with nmap, identified open services, and wrote
+            up the findings and how I'd remediate them.
+          </p>
+          <div class="meta">
+            <div><span>Tools:</span> nmap, Wireshark</div>
+            <a href="https://github.com/your-username/your-writeup-repo" target="_blank">View Writeup 💖 &rarr;</a>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-header">
+            <h3>Web Vulnerability Report</h3>
+            <span class="sev-tag sev-med">[MED SEV]</span>
+          </div>
+          <p>
+            Assessed an intentionally vulnerable web app, documented each finding with a
+            severity rating, evidence, and a mitigation.
+          </p>
+          <div class="meta">
+            <div><span>Tools:</span> Burp Suite</div>
+            <a href="https://github.com/your-username/your-writeup-repo" target="_blank">View Writeup 💖 &rarr;</a>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <div>Built as part of the Cybersecurity Lab (S617) at Hudson County Community College.</div>
+    </footer>
+
+  </div>
+</body>
+</html>
