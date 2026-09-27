@@ -44,11 +44,11 @@ with a secured account already set up.
 1. **Fork it** to your own account (the **Fork** button, top right).
 2. **Clone your fork:**
    ```
-   git clone git@github.com:YOUR-USERNAME/cyber-portfolio-workshop.git
+   git clone git@github.com:YOUR-USERNAME/s617.git
    ```
 3. **Link the original** so you can pull new labs all semester:
    ```
-   git remote add upstream https://github.com/<S617-ACCOUNT>/cyber-portfolio-workshop.git
+   git remote add upstream https://github.com/CyberLab-S617/s617.git
    git pull upstream main
    ```
 
