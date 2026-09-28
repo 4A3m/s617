@@ -26,6 +26,21 @@ Fork S617 repo
 
 Chose one of the templates in templates/portfolio/
 
+plain-rename-to-index
+
+![Template preview](../templates/portfolio/images/plain-rename-to-index.png)
+
+cyber-rename-to-index
+
+![Template preview](../templates/portfolio/images/cyber-rename-to-index.png)
+
+cybergirl-rename-to-index
+
+![Template preview](../templates/portfolio/images/cybergirl-rename-to-index.png)
+
+cyberstar-rename-to-index
+
+![Template preview](../templates/portfolio/images/cyberstar-rename-to-index.png)
 
 
 
@@ -42,12 +57,36 @@ writeups. You don't need to touch the styling unless you want to.
 > ✍️ Keep it honest and specific. "Built and documented a network-scanning lab with nmap"
 > beats "passionate about cybersecurity." Recruiters read this first.
 
+** Feel free to use AI to make the template yours ** 
+
+![AI change](images/s03-ai-prompt.png)
+Down the generated code
+
+![AI change download](images/s03-ai-code-download.png)
+
+Rename the file to index.html
+
+![rename](images/s03-rename.png)
+
+Your index file is working now locally in your computer
+
+![local-index](images/s03-local-index.png)
+
+**Review and edit your portfolio carefully** and save your changes.
+
+
 ## Step 4 - Commit and push
 Commit your changes (in the browser, that's the **Commit changes** button; from the
 command line, `git add`, `git commit`, `git push`).
 
+![upload](images/s03-upload.png)
+
+Drag or Choose your index.html file to upload it
+
+![drag](images/s03-drag.png)
+
 > 📸 **Screenshot 02** - your repo showing `index.html` committed.
-<!-- ![Committed](images/b02-committed.png) -->
+![Committed](images/b02-committed.png)
 
 ## Step 5 *(stretch)* - Go live with GitHub Pages
 **Settings -> Pages -> Build and deployment -> Source: Deploy from a branch -> `main` / root -> Save.**
@@ -57,7 +96,7 @@ Wait a minute or two, then visit `https://your-username.github.io`.
 ![Pages settings](images/b03-pages.png)
 
 > 📸 **Screenshot 04** - the live portfolio in a browser.
-<!-- ![Live site](images/b04-live.png) -->
+![Live site](images/b04-live.png)
 
 ---
 

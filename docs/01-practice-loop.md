@@ -1,9 +1,3 @@
-<!--
-MAINTAINER: screenshots live in docs/images/ (uncomment the line under each 📸 callout
-after adding the PNG; blur anything personal). Replace <EXAMPLE-REPO-URL> with the
-Git Playground repo's URL. The diagrams below use Mermaid + ASCII and render on GitHub
-as-is - no setup needed.
--->
 
 # Guide 2 - Practice the Git Loop *(warm-up)*
 
