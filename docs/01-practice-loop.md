@@ -54,8 +54,8 @@ cd s617-git-playground
 In the `practice/` folder, create a **new file** named after you - `practice/your-name.md` -
 write a line, then save your first snapshot:
 ```bash
-git config user.name "your-repo-name"
-git config user.email "your-email@something.com"
+git config user.name "your-user-name"
+git config user.email "yournumber+your-noreply-email@user.noreply.github.com"
 touch practice/your-name.md
 git add practice/your-name.md
 git commit -m "Add my practice file"
@@ -117,10 +117,10 @@ git add practice/your-name.md
 git commit -m "First change"
 # edit again using any text editor...
 git add practice/your-name.md
-git commit -am "Second change"
+git commit -m "Second change"
 # edit again using any text editor...
 git add practice/your-name.md
-git commit -am "Third change"
+git commit -m "Third change"
 ```
 ![commet-changes](images/B1-commet-changes.png)
 
